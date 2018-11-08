@@ -11,3 +11,4 @@ export class AppComponent {
   title = 'Header';
   PageHeader: string= 'Employee Details';
 }
+
