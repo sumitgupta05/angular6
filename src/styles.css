@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+table{
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color:royalblue;
+    border:coral;
+}
+
+td{
+    border: 1px solid red;
+}
