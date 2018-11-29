@@ -3,25 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import {employeeComponent} from './employee/employee.Component';
-
-// const appRoutes: Routes = [
-// // redirect to home page by default
-// { path: '', component: HomeComponent }, 
-// { path: 'home', component: HomeComponent }, 
-// { path: 'Emp', component:employeeComponent}, 
-// // otherwise redirect to home
-// { path: '**', redirectTo: '' }
-// ];
-
-// export const AppRoutingModule = RouterModule.forRoot(appRoutes); 
-
+import { ContactComponent } from './contact/contact.component'
+import {AboutComponent} from './about/about.Component';
 
 const routes: Routes = [
 
   //redirect to home page by default
 { path: '', component: HomeComponent }, 
 { path: 'home', component: HomeComponent }, 
-{ path: 'Emp', component:employeeComponent}, 
+{ path: 'Emp', component:employeeComponent},
+{ path: 'about', component:AboutComponent},
+{ path: 'contact', component:ContactComponent}, 
 // otherwise redirect to home
 { path: '**', redirectTo: '' }
 ];

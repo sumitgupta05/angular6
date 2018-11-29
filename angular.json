@@ -10,7 +10,7 @@
       "prefix": "app",
       "schematics": {},
       "architect": {
-        "build": {
+        "build": { 
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist",

@@ -1,13 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
-
-table{
-
-    font-family: 'Courier New', Courier, monospace;
-    font-size: large;
-    color:royalblue;
-    border:coral;
-}
-
-td{
-    border: 1px solid red;
-}
+@import "assets/css/bootstrap.min.css";
+@import "assets/css/font-awesome.min.css";
+@import "assets/css/themify-icons.css";
+@import "assets/css/animate.css";
+@import "assets/css/owl.carousel.css";
+@import "assets/css/style.css"; 
