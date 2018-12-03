@@ -11,6 +11,9 @@ import {AboutComponent} from './about/about.Component';
 import {EmployeeService} from './Service/employee.service';
 import {ContactService} from './Service/contact.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
+import {FormsModule, NgForm, FormBuilder, FormGroup, Validators, FormControl,ReactiveFormsModule   } from '@angular/forms';
+import { BlogComponent } from './blog/blog.component';
+import { FeatureComponent } from './feature/feature.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +23,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
     ContactComponent,
     HeaderComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
+    BlogComponent,
+    FeatureComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-     HttpClientModule
+     HttpClientModule,
+    FormsModule, ReactiveFormsModule
   ],
   providers: [EmployeeService,ContactService],
   bootstrap: [AppComponent]

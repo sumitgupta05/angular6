@@ -21,16 +21,16 @@ export class ContactService {
     return this.http.get<Contact[]>(this.baseUrl+"Contact/GetContactDetails",httpOptions);  
   }  
  
-//   deleteEmployees(id: number) {  
-//     return this.http.delete<Employee[]>(this.baseUrl + id);  
-//   }  
-//   createUser(employee: Employee) {  
-//     return this.http.post(this.baseUrl, employee);  
-//   }  
-//   getEmployeeById(id: number) {  
-//     return this.http.get<Employee>(this.baseUrl + '/' + id);  
-//   }  
-//   updateEmployee(employee: Employee) {  
-//     return this.http.put(this.baseUrl + '/' + employee.id, employee);  
-//   }  
+  deleteContactDetails(id: number) {  
+    return this.http.delete<Contact[]>(this.baseUrl+"Contact/GetContactDetails/" + id);  
+  }  
+  createContactDetails(employee: Contact) {  
+    return this.http.post(this.baseUrl+"Contact/GetContactDetails", employee);  
+  }  
+  getContactDetailsById(id: number) {  
+    return this.http.get<Contact>(this.baseUrl+"Contact/GetContactDetails/"+ id);  
+  }  
+  updateContactDetails(employee: Contact) {  
+    return this.http.put(this.baseUrl +"Contact/GetContactDetails/" + employee.id, employee);  
+  }  
 }  
