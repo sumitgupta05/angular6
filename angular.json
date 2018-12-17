@@ -8,7 +8,9 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+       
+      },
       "architect": {
         "build": { 
           "builder": "@angular-devkit/build-angular:browser",
@@ -23,10 +25,26 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/styles.scss",
+              "node_modules/nprogress/nprogress.css"
+              
             ],
-            "scripts": []
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/style"
+              ]
+            },
+            "scripts": [
+              "src/sideMenu/modernizr-custom.js",
+              "src/sideMenu/classie.js",
+              "src/sideMenu/dummydata.js",
+              "src/sideMenu/main.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js" 
+                
+            ]
           },
+          
           "configurations": {
             "production": {
               "fileReplacements": [
@@ -81,7 +99,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

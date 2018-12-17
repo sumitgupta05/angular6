@@ -1,10 +1,10 @@
 
 export class Contact{
     id: number=0;
-    Name: string="";
-    LastName: string="";
-    EmailId: string="";
+    name: string="";
+    lastName: string="";
+    emailId: string="";
     mobile: string="";
-    About : string ="";
+    about : string ="";
 
 }

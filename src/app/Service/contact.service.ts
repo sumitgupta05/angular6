@@ -17,20 +17,23 @@ export class ContactService {
   baseUrl: string = 'https://localhost:44301/api/';  
   
   getContact() {  
-    
     return this.http.get<Contact[]>(this.baseUrl+"Contact/GetContactDetails",httpOptions);  
   }  
- 
-  deleteContactDetails(id: number) {  
-    return this.http.delete<Contact[]>(this.baseUrl+"Contact/GetContactDetails/" + id);  
-  }  
-  createContactDetails(employee: Contact) {  
-    return this.http.post(this.baseUrl+"Contact/GetContactDetails", employee);  
+  createContactDetails(contact: Contact) {  
+    return this.http.post(this.baseUrl+"Contact/Create", contact);  
   }  
   getContactDetailsById(id: number) {  
-    return this.http.get<Contact>(this.baseUrl+"Contact/GetContactDetails/"+ id);  
-  }  
+    debugger
+    return this.http.get<Contact>(this.baseUrl+"Contact/Details?id="+ id)
+      .pipe(map(resp => {
+        return resp;
+      }))
+  }
+
   updateContactDetails(employee: Contact) {  
-    return this.http.put(this.baseUrl +"Contact/GetContactDetails/" + employee.id, employee);  
+    return this.http.put(this.baseUrl +"Contact/Edit/", employee);  
   }  
+  deleteContactDetails(id: number) {  
+    return this.http.delete<Contact[]>(this.baseUrl+"Contact/Delete?id=" + id);  
+  }
 }  

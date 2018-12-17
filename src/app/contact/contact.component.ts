@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {ContactService} from '../Service/contact.service'
 import {Contact} from '../model/Contact.model'
 import { HttpClient, HttpHeaders } from '@angular/common/http'; 
-import { FormsModule,NgForm, FormBuilder, FormGroup, Validators, FormControl,ReactiveFormsModule   } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl,ReactiveFormsModule   } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -13,15 +13,17 @@ import { FormsModule,NgForm, FormBuilder, FormGroup, Validators, FormControl,Rea
 
 export class ContactComponent  {
   public contatList;
-
   ContactForm: FormGroup;
   id: number;
   errorMessage: any;
   title: string = "Create";
-  
-
-  constructor(private _fb: FormBuilder,public http:  HttpClient, private _router: Router, private _contactrService: ContactService) {
-     this.getContactDetails();
+  submitted = false;
+  constructor(private _fb: FormBuilder,public http:  HttpClient, private _router: Router, private _contactrService: ContactService,public _avRoute: ActivatedRoute) {
+    // if (this._avRoute.snapshot.params["id"]) {
+    //     this.id = this._avRoute.snapshot.params["id"];
+    // }
+    
+    this.getContactDetails();
 
      this.ContactForm = this._fb.group({
       id: 0,
@@ -33,34 +35,61 @@ export class ContactComponent  {
   })
   }
 
+    // convenience getter for easy access to form fields
+    get f() { return this.ContactForm.controls; }
+
   getContactDetails() {
       this._contactrService.getContact().subscribe(
         (data: Contact[]) => {  
           this.contatList = data;  
         });  
-      //     data => this.contatList = data
-      // )
   }
 
   save(){
-  //   if (!this._contactrService.valid) {
-  //     return;
-  // }
-debugger;
+    this.submitted = true;
+      debugger
+     if (this.ContactForm.invalid) {
+      return;
+      }
+
   if (this.title == "Create") {
       this._contactrService.createContactDetails(this.ContactForm.value)
           .subscribe((data) => {
-              this._router.navigate(['/fetch-employee']);
+            this.getContactDetails();
+            this.ContactForm.patchValue({id:0,'name':"", 'lastName':"" ,'emailid':"",'mobile':"",'about':""})
           }, error => this.errorMessage = error)
   }
   else if (this.title == "Edit") {
       this._contactrService.updateContactDetails(this.ContactForm.value)
           .subscribe((data) => {
-              this._router.navigate(['/fetch-employee']);
+            this.getContactDetails();
+            this.title = "Create"
+            this.ContactForm.patchValue({id:0,'name':"", 'lastName':"" ,'emailid':"",'mobile':"",'about':""})
           }, error => this.errorMessage = error) 
-  }
+         } 
   }
 
-  
+  delete(contactID) {
+    var ans = confirm("Do you want to delete customer with Id: " + contactID);
+    if (ans) {
+        this._contactrService.deleteContactDetails(contactID).subscribe((data) => {
+            this.getContactDetails();
+        }, error => console.error(error)) 
+    }
+}
+
+GetContactDetailById(Id)
+{
+    debugger;
+    if (Id > 0) {
+        this.title = "Edit";
+        this._contactrService.getContactDetailsById(Id)
+        .subscribe((resp) => {  
+            this.ContactForm.patchValue({id:resp.id,'name':resp.name, 'lastName':resp.lastName ,'emailid':resp.emailId,'mobile':resp.mobile,'about':resp.about})
+          } , error => this.errorMessage = error);
+        
+    }
+}  
+
 }
   
