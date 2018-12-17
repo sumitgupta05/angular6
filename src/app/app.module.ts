@@ -24,6 +24,8 @@ import { LoginLayoutComponent } from './layout/login-layout.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CommonService } from './shared/services/common.service';
 import {FooterAdminComponent} from './footer/footer-Admin.component'
+import {LoginService} from './Service/login.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +53,7 @@ import {FooterAdminComponent} from './footer/footer-Admin.component'
     HttpClientModule,
     FormsModule, ReactiveFormsModule
   ],
-  providers: [EmployeeService, ContactService,CommonService],
+  providers: [EmployeeService, ContactService,CommonService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
