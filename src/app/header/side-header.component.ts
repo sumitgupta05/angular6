@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../shared/services/common.service';
+import {AuthenticationService} from '../Service/authentication.service'
 @Component({
   selector: 'app-sideheader',
   templateUrl: './side-header.component.html',
@@ -8,7 +9,7 @@ import { CommonService } from '../shared/services/common.service';
 })
 export class SideHeaderComponent   {
 
-  constructor(public cmnSrv: CommonService) {  }
+  constructor(public cmnSrv: CommonService,public authenticationService:AuthenticationService) {  }
 
   sidebarItems = [
     {link: '/homeIndex', label: 'Dashboard', icon: 'dashboard'},
@@ -27,25 +28,26 @@ export class SideHeaderComponent   {
       {link: '/forms/custom', label: 'custom form', icon: 'cf'},
       // {link:'/forms/validations',label:'Form Validation',icon:'fv'}
     ]},
-    {label: 'Pages', icon: 'pages', subItem: [
-      {link: '/pages/notfound', label: 'Not Found', icon: 'nf'},
-      {link: '/pages/auth', label: 'Auth', icon: 'A'}
-    ]},
-    { label: 'Tables', icon: 'grid_on', subItem: [
-      {link: '/tables/basic', label: 'Basic Table', icon: 'BT'},
-      {link: '/tables/smart', label: 'smart table', icon: 'ST'}
-    ]},
+    // {label: 'Pages', icon: 'pages', subItem: [
+    //   {link: '/pages/notfound', label: 'Not Found', icon: 'nf'},
+    //   {link: '/pages/auth', label: 'Auth', icon: 'A'}
+    // ]},
+    // { label: 'Tables', icon: 'grid_on', subItem: [
+    //   {link: '/tables/basic', label: 'Basic Table', icon: 'BT'},
+    //   {link: '/tables/smart', label: 'smart table', icon: 'ST'}
+    // ]},
     {link: '/charts', label: 'Charts', icon: 'show_chart'},
-    {link: '/maps', label: 'Maps', icon: 'place'},
-    {link: '/editors', label: 'Editors', icon: 'edit'},
-    {link: '/calendar', label: 'Calendar', icon: 'date_range'},
-    {label: 'Menu', icon: 'menu', subItem: [
-      {link: 'void()', label: 'Sub Menu L1', icon: 'l1'},
-      { label: 'Sub Menu L1', icon: 'l1' , subItem: [
-        {link: 'void()', label: 'Sub Menu L2', icon: 'l2'},
-        {link: 'void()', label: 'Sub Menu L2', icon: 'l2'},
-      ]},
-    ]}
+    // {link: '/maps', label: 'Maps', icon: 'place'},
+    // {link: '/editors', label: 'Editors', icon: 'edit'},
+    // {link: '/calendar', label: 'Calendar', icon: 'date_range'},
+    // {label: 'Menu', icon: 'menu', subItem: [
+    //   {link: 'void()', label: 'Sub Menu L1', icon: 'l1'},
+    //   { label: 'Sub Menu L1', icon: 'l1' , subItem: [
+    //     {link: 'void()', label: 'Sub Menu L2', icon: 'l2'},
+    //     {link: 'void()', label: 'Sub Menu L2', icon: 'l2'},
+    //   ]},
+    // ]},
+    
   ];
 
 

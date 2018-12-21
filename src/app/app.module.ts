@@ -25,6 +25,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CommonService } from './shared/services/common.service';
 import {FooterAdminComponent} from './footer/footer-Admin.component'
 import {LoginService} from './Service/login.service'
+import {AlertComponent} from './_directives/alert.component'
+
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import {LoginService} from './Service/login.service'
     HomeIndexComponent,
     LoginLayoutComponent,
     NavbarComponent,
-    FooterAdminComponent
+    FooterAdminComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

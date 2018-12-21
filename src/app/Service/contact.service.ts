@@ -14,7 +14,7 @@ const httpOptions = {
 export class ContactService {  
   
   constructor(private http: HttpClient) { }  
-  baseUrl: string = 'https://localhost:44301/api/';  
+  baseUrl: string = 'http://localhost:60632/api/';  
   
   getContact() {  
     return this.http.get<Contact[]>(this.baseUrl+"Contact/GetContactDetails",httpOptions);  
@@ -24,7 +24,7 @@ export class ContactService {
   }  
   getContactDetailsById(id: number) {  
     debugger
-    return this.http.get<Contact>(this.baseUrl+"Contact/Details?id="+ id)
+    return this.http.get<Contact>(this.baseUrl+"Contact/Details/"+ id)
       .pipe(map(resp => {
         return resp;
       }))
@@ -34,6 +34,6 @@ export class ContactService {
     return this.http.put(this.baseUrl +"Contact/Edit/", employee);  
   }  
   deleteContactDetails(id: number) {  
-    return this.http.delete<Contact[]>(this.baseUrl+"Contact/Delete?id=" + id);  
+    return this.http.delete<Contact[]>(this.baseUrl+"Contact/Delete/" + id);  
   }
 }  

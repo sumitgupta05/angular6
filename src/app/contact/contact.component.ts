@@ -26,7 +26,7 @@ export class ContactComponent  {
     this.getContactDetails();
 
      this.ContactForm = this._fb.group({
-      id: 0,
+      Id: 0,
       name: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       mobile: ['', [Validators.required]],
@@ -56,7 +56,7 @@ export class ContactComponent  {
       this._contactrService.createContactDetails(this.ContactForm.value)
           .subscribe((data) => {
             this.getContactDetails();
-            this.ContactForm.patchValue({id:0,'name':"", 'lastName':"" ,'emailid':"",'mobile':"",'about':""})
+            this.ContactForm.patchValue({Id:0,'name':"", 'lastName':"" ,'emailid':"",'mobile':"",'about':""})
           }, error => this.errorMessage = error)
   }
   else if (this.title == "Edit") {
@@ -64,7 +64,7 @@ export class ContactComponent  {
           .subscribe((data) => {
             this.getContactDetails();
             this.title = "Create"
-            this.ContactForm.patchValue({id:0,'name':"", 'lastName':"" ,'emailid':"",'mobile':"",'about':""})
+            this.ContactForm.patchValue({Id:0,'name':"", 'lastName':"" ,'emailid':"",'mobile':"",'about':""})
           }, error => this.errorMessage = error) 
          } 
   }
@@ -85,7 +85,7 @@ GetContactDetailById(Id)
         this.title = "Edit";
         this._contactrService.getContactDetailsById(Id)
         .subscribe((resp) => {  
-            this.ContactForm.patchValue({id:resp.id,'name':resp.name, 'lastName':resp.lastName ,'emailid':resp.emailId,'mobile':resp.mobile,'about':resp.about})
+            this.ContactForm.patchValue({Id:resp.Id,'name':resp.name, 'lastName':resp.lastName ,'emailid':resp.emailId,'mobile':resp.mobile,'about':resp.about})
           } , error => this.errorMessage = error);
         
     }

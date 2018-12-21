@@ -8,7 +8,7 @@ import { Employee } from '../model/Employee.model'
 export class EmployeeService {  
   
   constructor(private http: HttpClient) { }  
-  baseUrl: string = 'https://localhost:44301/api/';  
+  baseUrl: string = 'http://localhost:60632/api/';  
   
   getEmployees() {  
     return this.http.get<Employee[]>(this.baseUrl);  

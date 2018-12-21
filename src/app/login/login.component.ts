@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 
 import { AlertService, AuthenticationService } from '../Service';
 
-@Component({templateUrl: 'login.component.html'})
+@Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     loading = false;
@@ -20,9 +20,10 @@ export class LoginComponent implements OnInit {
         private alertService: AlertService
     ) {
         // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) { 
-            this.router.navigate(['/']);
-        }
+        // if (this.authenticationService.currentUserValue.username) {
+        //     this.router.navigate(['/']);
+        // }
+        //alert(this.authenticationService.currentUserValue.username)
     }
 
     ngOnInit() {
@@ -32,37 +33,33 @@ export class LoginComponent implements OnInit {
         });
 
         // get return url from route parameters or default to '/'
-       // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/register';
-        this.returnUrl = '/register';
+        // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/register';
+        this.returnUrl = '/homeIndex';
     }
 
     // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
 
     onSubmit() {
+       
         this.submitted = true;
-
         // stop here if form is invalid
         if (this.loginForm.invalid) {
             return;
         }
-
         this.loading = true;
-        // this.authenticationService.login(this.f.username.value, this.f.password.value)
-        //     .pipe(first())
-        //     .subscribe(
-        //         data => {
-        //             this.router.navigate([this.returnUrl]);
-        //         },
-        //         error => {
-        //             this.alertService.error(error);
-        //             this.loading = false;
-        //         });
-debugger
-        if(this.f.username.value=="sumit" && this.f.password.value=="1234")
-        {
-            this.router.navigate([this.returnUrl]);
-        }
+        this.authenticationService.login(this.f.username.value, this.f.password.value)
+            .pipe(first())
+            .subscribe(
+                data => {
+
+                    this.router.navigate([this.returnUrl]);
+                },
+                error => {
+                    this.alertService.error(error.error.error_description);
+                    this.loading = false;
+                });
+
 
     }
 }
