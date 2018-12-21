@@ -21,7 +21,8 @@ body {
 	height: 100%;
 	font-family: "Lato", sans-serif;
 	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
+	/* font-smoothing: antialiased; */
+	background-color: #fff !important;
 }
 
 h1,
@@ -94,8 +95,8 @@ ol {
 -----------------------*/
 
 .spad {
-	padding-top: 100px;
-	padding-bottom: 90px;
+	padding-top: 25px;
+    padding-bottom: 50px;
 }
 
 .section-title {
@@ -339,8 +340,8 @@ ol {
 -----------------------*/
 
 .hero-section {
-	height: 900px;
-	padding-top: 260px;
+	height: 700px;
+	padding-top: 125px;
 	display: block;
 	background-image: url("/assets/img/hero-bg.png");
 	background-size: cover;
@@ -659,7 +660,7 @@ ol {
 }
 
 .author-meta {
-	padding: 50px 0 70px;
+	padding: 45px 0 35px;
 	position: relative;
 	text-align: center;
 }
@@ -669,8 +670,8 @@ ol {
 }
 
 .author-avatar {
-	width: 80px;
-	height: 80px;
+	width: 20px;
+	height: 20px;
 	border: 6px solid #fff;
 	border-radius: 50%;
 	-webkit-box-shadow: 0px 16px 21px rgba(33, 54, 61, 0.15);
@@ -710,7 +711,7 @@ ol {
 }
 
 .review-text p {
-	font-size: 22px;
+	font-size: 16px;
 }
 
 .review-text-slider .owl-nav {
@@ -874,7 +875,7 @@ ol {
 -----------------------*/
 
 .footer-widget span {
-	color: #acb9cc;
+	color: #5c6167;
 }
 
 .footer-widget p {
@@ -958,7 +959,7 @@ ol {
 ======================*/
 
 .page-info-section {
-	height: 300px;
+	height: 210px;
 	background-image: url("/assets/img/page-info-bg.png");
 	background-size: cover;
 	background-color: #f3f7f9;
@@ -1818,3 +1819,11 @@ ol {
 		padding-left: 0;
 	}
 }
+
+.rowShadow{
+	box-shadow: 0px 3px 0 6px rgba(0, 0, 0, 0.125);
+    padding-top: 2%;
+    background-color: #fff;
+}
+
+
