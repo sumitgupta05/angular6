@@ -4,7 +4,7 @@ import {ContactService} from '../Service/contact.service'
 import {Contact} from '../model/Contact.model'
 import { HttpClient, HttpHeaders } from '@angular/common/http'; 
 import { FormBuilder, FormGroup, Validators, FormControl,ReactiveFormsModule   } from '@angular/forms';
-
+import { AlertService, AuthenticationService } from '../Service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -18,7 +18,12 @@ export class ContactComponent  {
   errorMessage: any;
   title: string = "Create";
   submitted = false;
-  constructor(private _fb: FormBuilder,public http:  HttpClient, private _router: Router, private _contactrService: ContactService,public _avRoute: ActivatedRoute) {
+  constructor(private _fb: FormBuilder,
+    public http:  HttpClient, private _router: Router, 
+    private _contactrService: ContactService,
+    public _avRoute: ActivatedRoute,
+    private alertService: AlertService
+    ) {
     // if (this._avRoute.snapshot.params["id"]) {
     //     this.id = this._avRoute.snapshot.params["id"];
     // }
@@ -55,17 +60,19 @@ export class ContactComponent  {
   if (this.title == "Create") {
       this._contactrService.createContactDetails(this.ContactForm.value)
           .subscribe((data) => {
+            this.alertService.success("Contact Details save successfully.");
             this.getContactDetails();
             this.ContactForm.patchValue({Id:0,'name':"", 'lastName':"" ,'emailid':"",'mobile':"",'about':""})
-          }, error => this.errorMessage = error)
+          }, error => this.alertService.error(error))
   }
   else if (this.title == "Edit") {
       this._contactrService.updateContactDetails(this.ContactForm.value)
           .subscribe((data) => {
+            this.alertService.success("Contact Details updated successfully.");
             this.getContactDetails();
             this.title = "Create"
             this.ContactForm.patchValue({Id:0,'name':"", 'lastName':"" ,'emailid':"",'mobile':"",'about':""})
-          }, error => this.errorMessage = error) 
+          }, error =>  this.alertService.error(error)) 
          } 
   }
 
@@ -73,8 +80,9 @@ export class ContactComponent  {
     var ans = confirm("Do you want to delete customer with Id: " + contactID);
     if (ans) {
         this._contactrService.deleteContactDetails(contactID).subscribe((data) => {
+          this.alertService.success("Record deleted successfully.");
             this.getContactDetails();
-        }, error => console.error(error)) 
+        }, error => this.alertService.error(error)) 
     }
 }
 
@@ -86,7 +94,7 @@ GetContactDetailById(Id)
         this._contactrService.getContactDetailsById(Id)
         .subscribe((resp) => {  
             this.ContactForm.patchValue({Id:resp.Id,'name':resp.name, 'lastName':resp.lastName ,'emailid':resp.emailId,'mobile':resp.mobile,'about':resp.about})
-          } , error => this.errorMessage = error);
+          } , error =>  this.alertService.error(error));
         
     }
 }  
