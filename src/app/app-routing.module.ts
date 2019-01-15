@@ -12,7 +12,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { HomeLayoutComponent } from './layout/home-layout.component';
 import { HomeIndexComponent } from './home-index/home-index.component'
 import { LoginLayoutComponent } from './layout/login-layout.component';
-
+import {RegisterListComponent} from './register/registerList.component'
+import { FormComponent } from './form/form.component'
 const routes: Routes = [
 
   // Common Page routing
@@ -48,6 +49,9 @@ const routes: Routes = [
     children: [
       { path: 'homeIndex', component: HomeIndexComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'registerList', component: RegisterListComponent },
+      { path: 'advancedform', component: FormComponent },
+      
     ]
   },
  

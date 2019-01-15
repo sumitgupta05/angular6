@@ -15,17 +15,15 @@ export class SideHeaderComponent   {
     {link: '/homeIndex', label: 'Dashboard', icon: 'dashboard'},
     {label: 'Components', icon: 'apps', subItem: [
       {link: '/register', label: 'Register', icon: 'R'},
-      {link: '/components/grids', label: 'grid System', icon: 'gs'},
-      {link: '/components/panels', label: 'panels', icon: 'p'},
+      {link: '/registerList', label: 'Register User List', icon: 'R'},
+      //{link: '/components/panels', label: 'panels', icon: 'p'},
       // {link:'/components/alerts',label:'alerts',icon:'a'},
       // {link:'/components/notifications',label:'notifications',icon:'n'},
-      {link: '/components/icons', label: 'icons', icon: 'i'},
-      {link: '/components/typography', label: 'typography', icon: 't'},
+      //{link: '/components/icons', label: 'icons', icon: 'i'},
+      //{link: '/components/typography', label: 'typography', icon: 't'},
     ]},
     {label: 'Forms', icon: 'ballot', subItem: [
-      {link: '/forms/basic', label: 'basic form', icon: 'bf'},
-      {link: '/forms/advance', label: 'advanced form', icon: 'af'},
-      {link: '/forms/custom', label: 'custom form', icon: 'cf'},
+      {link: '/advancedform', label: 'advanced form', icon: 'af'},
       // {link:'/forms/validations',label:'Form Validation',icon:'fv'}
     ]},
     // {label: 'Pages', icon: 'pages', subItem: [

@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-body">
+      <div class="row">
+        <!--<div class="col-lg-3">
+           <img _ngcontent-c3="" alt="" class="laptop-image" src="assets/img/laptop.png"> 
+        </div>-->
+        <div class="col-lg-6 mt-6 mt-lg-0">
+          <!-- Page info end -->
+          <table class="table table-dark">
+            <thead class="black white-text">
+                <tr>
+                    <td scope="col">Edit</td>
+                    <td>Delete</td>
+                    <td>User Id</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Password</td>
+                </tr>
+            </thead>
+            <tbody *ngFor="let user of UserList">
+                <tr>
+                    <td><a [routerLink]="" (click)="GetContactDetailById(user.Id)">Edit</a></td>
+                    <td><a [routerLink]="" (click)="delete(user.Id)">Delete</a></td>
+                    <td>{{ user.userName }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.password }}</td>                  
+                </tr>
+            </tbody>
+
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>

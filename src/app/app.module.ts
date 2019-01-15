@@ -26,8 +26,8 @@ import { CommonService } from './shared/services/common.service';
 import {FooterAdminComponent} from './footer/footer-Admin.component'
 import {LoginService} from './Service/login.service'
 import {AlertComponent} from './_directives/alert.component'
-
-
+import {RegisterListComponent} from './register/registerList.component';
+import { FormComponent } from './form/form.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +48,9 @@ import {AlertComponent} from './_directives/alert.component'
     LoginLayoutComponent,
     NavbarComponent,
     FooterAdminComponent,
-    AlertComponent
+    AlertComponent,
+    RegisterListComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
