@@ -23,11 +23,20 @@ import { HomeIndexComponent } from './home-index/home-index.component'
 import { LoginLayoutComponent } from './layout/login-layout.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CommonService } from './shared/services/common.service';
-import {FooterAdminComponent} from './footer/footer-Admin.component'
-import {LoginService} from './Service/login.service'
-import {AlertComponent} from './_directives/alert.component'
-import {RegisterListComponent} from './register/registerList.component';
+import { FooterAdminComponent } from './footer/footer-Admin.component'
+import { LoginService } from './Service/login.service'
+import { AlertComponent } from './_directives/alert.component'
+import { RegisterListComponent } from './register/registerList.component';
 import { FormComponent } from './form/form.component'
+import {
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatFormFieldModule,
+  MatInputModule
+} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,14 +60,22 @@ import { FormComponent } from './form/form.component'
     AlertComponent,
     RegisterListComponent,
     FormComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule,
+    BrowserAnimationsModule
+
   ],
-  providers: [EmployeeService, ContactService,CommonService,LoginService],
+  providers: [EmployeeService, ContactService, CommonService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

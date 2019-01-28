@@ -27,7 +27,8 @@
             "styles": [
               "src/styles.css",
               "src/styles.scss",
-              "node_modules/nprogress/nprogress.css"
+              "node_modules/nprogress/nprogress.css",
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
               
             ],
             "stylePreprocessorOptions": {
@@ -40,8 +41,8 @@
               "src/sideMenu/classie.js",
               "src/sideMenu/dummydata.js",
               "src/sideMenu/main.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js" 
-                
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+               
             ]
           },
           

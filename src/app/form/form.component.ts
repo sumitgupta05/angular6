@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { FlatpickrOptions } from 'ng2-flatpickr';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
+  public  Countrylst;
   constructor() { }
 
   ngOnInit() {
