@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FormComponent implements OnInit {
 
   public  Countrylst;
+  public Statelst;
   constructor() { }
 
   ngOnInit() {
